@@ -32,6 +32,9 @@ int kern_init(void) __attribute__((noreturn));
  */ 
 int
 kern_init(void) {
+
+    //xuyu
+    //注意这里的end是在ld里面定义的，是内核的结束地址！！！
     extern char edata[], end[];
     memset(edata, 0, end - edata);  // 清空 bss 段
 

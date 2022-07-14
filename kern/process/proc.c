@@ -1068,6 +1068,7 @@ do_yield(void) {
 // 考虑因素: 如果子进程还有子进程,则需要睡眠等待.重新调度进程队列.
 //
 // 清理资源: 1 从内核的进程维护表中移除  2 释放栈空间 释放进程控制块空间
+//xuyu 实际上这个函数实际作用就是等待，删除僵尸进程，调度开启其他进程作用
 int
 do_wait(int pid, int *code_store) {
     struct mm_struct *mm = current->mm;
