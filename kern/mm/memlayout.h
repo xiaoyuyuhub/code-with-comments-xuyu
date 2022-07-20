@@ -14,6 +14,7 @@
 #define SEG_UDATA   4
 #define SEG_TSS     5
 
+//注意这里为什么要左移动3位，因为数字要×8，一个段描述符是8字节，×8就代表了段真实的地址，很多时候都是用这个真实的地址
 /* global descrptor numbers <<3 = * 8  */
 #define GD_KTEXT    ((SEG_KTEXT) << 3)      // kernel text
 #define GD_KDATA    ((SEG_KDATA) << 3)      // kernel data

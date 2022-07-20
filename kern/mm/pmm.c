@@ -300,6 +300,7 @@ page_init(void) {
     for (i = 0; i < memmap->nr_map; i ++) {
         uint64_t begin = memmap->map[i].addr, end = begin + memmap->map[i].size;
         LOG_TAB("考察区间: [%08llx,%08llx):\t",begin,end);
+        LOG_TAB("考察区间: [%08llx):\t",&begin);
         if (memmap->map[i].type == E820_ARM) {
             if (begin < freemem) {
                 begin = freemem;
@@ -312,6 +313,7 @@ page_init(void) {
                 end = ROUNDDOWN(end, PGSIZE);
                 if (begin < end) {
                     LOG_TAB("此区间可用, 大小为 0x%08llx B = %lld KB = %lld MB = %lld page.\n", (end - begin), (end - begin)/1024, (end - begin)/1024/1024, (end - begin)/PGSIZE);
+                    LOG_TAB("考察区间: [%08llx):\t",begin);
                     init_memmap(pa2page(begin), (end - begin) / PGSIZE);
                 }
             }else{
