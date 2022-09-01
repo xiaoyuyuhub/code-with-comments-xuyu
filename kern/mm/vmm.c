@@ -179,6 +179,7 @@ mm_map(struct mm_struct *mm, uintptr_t addr, size_t len, uint32_t vm_flags,
     int ret = -E_INVAL;
 
     struct vma_struct *vma;
+    //why not end in find_vma?
     if ((vma = find_vma(mm, start)) != NULL && end > vma->vm_start) {
         goto out;
     }

@@ -1062,8 +1062,8 @@ do_yield(void) {
 
 // 等待一个或多个子进程僵死并清理.
 //  一旦子进程变为PROC_ZOMBIE状态,此函数则清理子进程的资源.
-// 若 pid 为 0,则用户调用的是 wait()函数
-// 若 pid 不为 0 则用户调用的是 waitpid()函数
+// 若 pid 为 0,则用户调用的是 wait()函数, (find a zoom and delete) or (find a child runable and run find regeat)
+// 若 pid 不为 0 则用户调用的是 waitpid()函数,(if  is zombie and delete,if is runable and run and repeat if )
 //
 // 考虑因素: 如果子进程还有子进程,则需要睡眠等待.重新调度进程队列.
 //
