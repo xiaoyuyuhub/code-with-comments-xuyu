@@ -679,7 +679,6 @@ do_exit(int error_code) {
         if (proc->wait_state == WT_CHILD) {
             wakeup_proc(proc);
         }
-        // 
 
         while (current->cptr != NULL) {
             proc = current->cptr;
